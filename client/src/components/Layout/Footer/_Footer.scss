@@ -1,0 +1,14 @@
+.footer {
+   font-size: 1.3rem;
+   color: white;
+   background-color: $hf-color;
+   height: 4rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+   p {
+      margin-left: 1rem;
+   }
+}

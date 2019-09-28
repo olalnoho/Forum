@@ -1,0 +1,315 @@
+.thread {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  min-height: 80vh;
+  padding: 2rem;
+  //background-color: white;
+  //background-color: $landing-bg;
+  background-color: $hf-color;
+  //flex: 1;
+  margin: 2rem auto;
+
+  &__back {
+    cursor: pointer;
+    color: white;
+    padding: 1rem;
+    width: 10rem;
+    margin-bottom: 1rem;
+    outline: none;
+    border: none;
+    background-color: $bg2-color;
+  }
+
+  &__title {
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  &__posts {
+    padding: 1rem;
+    //border: 1px solid black;
+    border: 1px solid white;
+    margin: 3rem auto;
+    margin-bottom: 2rem;
+    width: 90%;
+  }
+
+  &__card,
+  &__card--post {
+    padding: 1rem;
+    min-height: 5rem;
+    font-size: 1.4rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    img {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      width: 5rem;
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+
+    // grid-template-columns: 1fr 2fr;
+    // grid-template-rows: 1fr 1fr;
+    // justify-items: center;
+    // align-items: center;
+
+    &--user {
+      text-align: center;
+      align-self: start;
+      margin-right: 2rem;
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+    }
+
+    p {
+      word-break: break-all;
+      font-size: 2rem;
+      grid-row: 1/-1;
+      justify-self: start;
+      align-self: center;
+    }
+  }
+
+  &__card--post {
+    display: flex;
+    &:not(:last-child) {
+      border-bottom: 1px solid white;
+    }
+
+    .left {
+      align-self: start;
+      padding-right: 2rem;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      align-items: center;
+    }
+    .right {
+      margin-top: 1rem;
+      align-self: start;
+      margin-left: 2rem;
+      height: 100%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+  }
+
+  &__create {
+    width: 50%;
+    margin: auto auto 0 auto;
+    p {
+      text-align: center;
+    }
+  }
+
+  textarea {
+    padding: 1rem;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    background-color: $hf-color;
+  }
+
+  textarea::placeholder {
+    color: white;
+  }
+}
+
+.comment {
+  word-break: break-all;
+  white-space: pre-wrap;
+  flex: 1;
+  padding: 1rem;
+  margin-left: 1rem;
+
+  strong {
+    color: rgb(170, 170, 170);
+  }
+}
+
+.quote {
+  margin-bottom: 2rem;
+  display: block;
+}
+
+blockquote {
+  box-shadow: inset 0.3rem 0.3rem 0.2rem $hf-color, inset -0.3rem -0.3rem 0.2rem $hf-color;
+  width: 100%;
+  padding: 2rem;
+  margin: 5px;
+  display: block;
+  background-color: $landing-bg;
+  border: 1px solid $bg-color;
+  border-radius: 0.4rem;
+}
+
+.said {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cite {
+  display: block;
+  cursor: pointer;
+  color: red;
+}
+
+@media only screen and (max-width: 1200px) {
+  .thread {
+    width: 80%;
+
+    &__card,
+    &__card--post {
+      grid-column-gap: 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .thread {
+    width: 90%;
+    &__posts {
+      width: 100%;
+    }
+
+    &__card {
+      flex-direction: column;
+
+      &--user {
+        margin: 0;
+        align-self: center;
+
+        h3 {
+          margin-bottom: 1rem;
+        }
+
+        margin-bottom: 1rem;
+      }
+
+      text-align: center;
+    }
+
+    &__card--post {
+      padding: 0;
+      flex-direction: column;
+
+      .comment {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 2rem;
+      }
+
+      .right {
+        padding: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+      }
+      .left {
+        align-self: center;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  blockquote {
+    margin: 1rem 0;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .thread {
+    background-color: $bg2-color;
+    width: 100%;
+    margin: 0;
+    flex: 1;
+
+    &__back {
+      background-color: $hf-color;
+    }
+
+    &__posts {
+      width: 100%;
+    }
+
+    &__card,
+    &__card--post {
+      width: 100%;
+      margin: 0;
+      grid-gap: 10px;
+      p {
+        justify-self: center;
+      }
+    }
+
+    &__create {
+      width: 100%;
+    }
+  }
+
+  blockquote {
+    padding: 1rem;
+  }
+}
+
+/*
+
+--GRID COMMENTS --
+
+    border: 1px solid red;
+
+    overflow: hidden;
+    grid-template-columns: 6rem max-content;
+    grid-template-rows: 6rem 2rem 2rem max-content;
+    grid-column-gap: 50px;
+    margin-bottom: 1rem
+    img {
+      grid-row: 1/2;
+      grid-column: 1/2;
+    
+    h3 {
+      grid-row: 2/3;
+      grid-column: 1/2;
+    
+    div {
+      grid-column: 2/-1;
+      grid-row: 1/-1;
+    
+    .cite {
+      color: red;
+      cursor: pointer;
+      margin-top: 1rem;
+      grid-row: 3/4;
+      grid-column: 1/2;
+    }
+    p {
+      width: 100%;
+      justify-self: start;
+      line-height: 1.5;
+      grid-row: 1/-1;
+      grid-column: 2/3;
+    
+    &:not(:last-child) {
+      //border-bottom: 1px solid black;
+      border-bottom: 1px solid white;
+    }
+*/

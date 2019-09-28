@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Manjari:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+
+@import "./vars";
+@import "./components";
+@import "./typography";
+@import "../components/Layout/Header/Header";
+@import "../components/Layout/Landing/Landing";
+@import "../components/Layout/Footer/Footer";
+@import "../components/Auth/Login/Login";
+@import "../components/Auth/Register/Register";
+@import "../components/Thread/Thread";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  // Set 1rem to 10px
+  font-size: 62.5%;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+.container {
+  margin-top: 6rem;
+  background-color: $bg2-color;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+i {
+  margin-right: 1rem;
+}

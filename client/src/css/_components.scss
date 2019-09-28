@@ -1,0 +1,53 @@
+.form {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-bottom: 1rem;
+  }
+  input[type="text"],
+  input[type="password"] {
+    padding: 1rem;
+  }
+  input[type="submit"] {
+    width: 10rem;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  &-primary {
+    color: white;
+    background-color: $primary-color;
+  }
+
+  &-secondary {
+    color: white !important;
+    background-color: $hf-color;
+  }
+}
+
+.blacktext {
+  color: black;
+}
+
+.center {
+  text-align: center;
+}
+
+.bb {
+  padding-bottom: 2rem;
+  //border-bottom: 1px solid #000;
+  border-bottom: 1px solid #fff;
+}
+
+.round-img {
+  border-radius: 50%;
+}
+
+.mb {
+  margin-bottom: 2rem;
+}

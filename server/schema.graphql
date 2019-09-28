@@ -1,0 +1,82 @@
+type Query {
+   users: [User!]!
+   topics: [Topic!]!
+   threads(skip: Int, limit: Int, topic: ID!): [Thread!]!
+   currentUser: User!
+   threadById(id: ID!): Thread!
+   threadsInTopic(id: ID!): [Thread!]!
+   postsInThread(id: ID!): [Post!]!
+}
+
+type Mutation {
+   createUser(data: createUser!): String!
+   updateUser(id: ID! data: UpdateUser): User!
+   login(data: loginUser): String!
+   createTopic(data: createTopic): Topic!
+   createThread(data: createThread): Thread!
+   createPost(data: createPost): Post!
+}
+
+type User {
+   id: ID!
+   name: String,
+   email: String!
+   password: String!
+}
+
+input createUser {
+   name: String
+   email: String!
+   password: String!
+}
+
+input loginUser {
+   email: String!
+   password: String!
+}
+
+input UpdateUser {
+   name: String
+   email: String
+   password: String
+}
+
+type Post {
+   id: ID!
+   text: String!
+   by: User!
+   thread: Thread!
+}
+
+input createPost {
+   text: String!
+   thread: ID!
+}
+
+type Topic {
+   id: ID!
+   title: String!
+   threads(skip: Int, limit: Int): [Thread!]!
+   totalThreads(query: Int): Int
+}
+
+input createTopic {
+   title: String!
+}
+
+
+type Thread {
+   id: ID!
+   title: String!
+   topic: Topic!
+   content: String!
+   posts: [Post!]!
+   by: User!
+   postCount: Int
+}
+
+input createThread {
+   title: String!
+   content: String!
+   topic: ID!
+}

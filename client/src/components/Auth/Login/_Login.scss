@@ -1,0 +1,32 @@
+.login {
+  width: 40%;
+  padding: 2rem;
+  //background-color: white;
+  color: white;
+  margin: 10rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  &__actions {
+    width: 100%;
+  }
+
+  &__error {
+    font-style: bold;
+    color: red;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .login {
+    width: 100%;
+  }
+}
