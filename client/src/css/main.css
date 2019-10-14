@@ -641,6 +641,9 @@ blockquote {
   .thread__posts {
     width: 100%;
   }
+  .thread__create {
+    width: 100%;
+  }
   .thread__card {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
