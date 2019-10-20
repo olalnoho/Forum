@@ -22,6 +22,7 @@
 
 .form input[type="submit"] {
   width: 10rem;
+  margin-top: 1rem;
 }
 
 .btn {
@@ -371,7 +372,7 @@
   width: 40%;
   padding: 2rem;
   color: white;
-  margin: 10rem auto;
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
