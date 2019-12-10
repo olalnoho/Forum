@@ -37,11 +37,13 @@ const Landing = (props) => {
       return <div>Something went wrong..</div>
    }
    const paginate = () => {
+      if (!active) return
       return <div className="landing__paginate">
          <i className="landing__paginate--prev fas fa-arrow-left" onClick={e => {
             limit * pageNumber + 1 > limit && setPageNumber(pageNumber - 1)
          }}></i>
-         <p><span className="hide-if-small">Page </span>{`${pageNumber + 1} of ${Math.ceil(active.totalThreads / limit)}`}</p>
+         <p><span className="hide-if-small">Page </span>{`${pageNumber + 1} of 
+         ${Math.ceil(active.totalThreads / limit) === 0 ? 1 : Math.ceil(active.totalThreads / limit)}`}</p>
          <i className="landing__paginate--next fas fa-arrow-right" onClick={e => limit * (pageNumber + 1) < active.totalThreads && setPageNumber(pageNumber + 1)}></i>
       </div>
    }
@@ -78,7 +80,7 @@ const Landing = (props) => {
                   })}
                </tbody>}
             </table>}
-            {active.threads && active.threads.length === 0 && <p className="medium no_thread"> No threads yet</p>}
+            {active && active.threads && active.threads.length === 0 && <p className="medium no_thread"> No threads yet</p>}
             {!loading && <div className="landing__create">
                {paginate()}
                {isAuth && active ? <Link to={`/threads/create/${active.id}`} className="btn btn-primary"> Create thread in '{active.title}' </Link>
