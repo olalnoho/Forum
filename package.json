@@ -9,7 +9,7 @@
     "client": "npm start --prefix ../client",
     "dev": "env-cmd -f ./config/dev.env concurrently \"npm run server\" \"npm run start --prefix client\"",
     "prod": "env-cmd -f ./config/prod.env concurrently \"npm run server\" \"npm run start --prefix client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix ../client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
