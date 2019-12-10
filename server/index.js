@@ -1,3 +1,5 @@
+const path = require('path')
+const express = require('express')
 require('./db/connection')
 const models = require('./db/models')
 
@@ -16,7 +18,7 @@ const options = {
    port: process.env.PORT || 4000,
    endpoint: '/graphql',
    subscriptions: '/subscriptions',
-   playground: '/dev',
+   playground: false,
 }
 
 const server = new GraphQLServer({
@@ -35,7 +37,15 @@ const server = new GraphQLServer({
    }),
 })
 
-
 server.express.post('/graphql', authMiddleWare)
+
+if (process.env.NODE_ENV === 'production') {
+   server.use(express.static(
+      path.resolve(__dirname, '../client', 'build')
+   ))
+   server.get('/', (req, res) => {
+      res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'))
+   })
+}
 
 server.start(options, () => console.log('server started'))
